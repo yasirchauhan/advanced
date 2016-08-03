@@ -23,7 +23,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'branch_address') ?>
 
-    <?= $form->field($model, 'branch_ccreated_date') ?>
+    <?= $form->field($model, 'branch_created_date') ?>
 
     <?php // echo $form->field($model, 'companies_company_id') ?>
 

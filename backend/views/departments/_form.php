@@ -5,6 +5,7 @@ use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
 use backend\models\Companies;
 use backend\models\Branches;
+use dosamigos\datepicker\DatePicker;
 /* @var $this yii\web\View */
 /* @var $model backend\models\Departments */
 /* @var $form yii\widgets\ActiveForm */
@@ -15,6 +16,18 @@ use backend\models\Branches;
     <?php $form = ActiveForm::begin(); ?>
 
     <?= $form->field($model, 'department_name')->textInput(['maxlength' => true]) ?>
+   
+     <?=
+                            DatePicker::widget([
+                                'model' => $model,
+                                'attribute' => 'department_created_date',
+                                'template' => '{addon}{input}',
+                                'clientOptions' => [
+                                    'autoclose' => true,
+                                    'format' => 'yyyy-mm-dd'
+                                ]
+                            ]);
+                            ?>
 
     <?= $form->field($model, 'department_email')->textInput(['maxlength' => true]) ?>
 

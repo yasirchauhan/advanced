@@ -19,7 +19,7 @@ class BranchesSearch extends Branches
     {
         return [
             [['branch_id'], 'integer'],
-            [[ 'companies_company_id','branch_name', 'branch_email', 'branch_address', 'branch_ccreated_date'], 'safe'],
+            [[ 'companies_company_id','branch_name', 'branch_email', 'branch_address', 'branch_created_date'], 'safe'],
         ];
     }
 
@@ -61,7 +61,7 @@ class BranchesSearch extends Branches
         $query->joinWith('companiesCompany');
         $query->andFilterWhere([
             'branch_id' => $this->branch_id,
-            'branch_ccreated_date' => $this->branch_ccreated_date,
+            'branch_created_date' => $this->branch_created_date,
             
         ]);
 

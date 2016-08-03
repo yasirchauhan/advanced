@@ -11,7 +11,7 @@ use Yii;
  * @property string $branch_name
  * @property string $branch_email
  * @property string $branch_address
- * @property string $branch_ccreated_date
+ * @property string $branch_created_date
  * @property string $companies_company_id
  *
  * @property Companies $companiesCompany
@@ -33,7 +33,7 @@ class Branches extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['branch_ccreated_date'], 'safe'],
+            [['branch_created_date'], 'safe'],
             [['companies_company_id'], 'required'],
             [['companies_company_id'], 'integer'],
             [['branch_name', 'branch_email', 'branch_address'], 'string', 'max' => 45],
@@ -52,7 +52,7 @@ class Branches extends \yii\db\ActiveRecord
             'branch_name' => 'Branch Name',
             'branch_email' => 'Branch Email',
             'branch_address' => 'Branch Address',
-            'branch_ccreated_date' => 'Branch Ccreated Date',
+            'branch_created_date' => 'Branch Ccreated Date',
            
         ];
     }
