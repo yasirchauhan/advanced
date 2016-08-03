@@ -47,12 +47,13 @@ class Branches extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
+             'companies_company_id' => 'Companies Name',
             'branch_id' => 'Branch ID',
             'branch_name' => 'Branch Name',
             'branch_email' => 'Branch Email',
             'branch_address' => 'Branch Address',
             'branch_ccreated_date' => 'Branch Ccreated Date',
-            'companies_company_id' => 'Companies Company ID',
+           
         ];
     }
 
