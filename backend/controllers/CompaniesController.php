@@ -73,10 +73,10 @@ class CompaniesController extends Controller
             $imageTake = $model->company_name;
             $imageName= str_replace(" ","",$imageTake);
             $model->file = UploadedFile::getInstance($model,'file');
-            $model->file->saveAs('uploads/'.$imageName.'.'.$model->file->extension );
+            $model->logo = $model->file->saveAs('uploads/'.$imageName.'.'.$model->file->extension );
             
             //save the path in db
-            $model->logo = 'uploads/'.$imageName.'.'.$model->file->extension;
+            //$model->logo = 'uploads/'.$imageName.'.'.$model->file->extension;
             
             $model->save();
             return $this->redirect(['view', 'id' => $model->company_id]);
