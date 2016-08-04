@@ -21,6 +21,8 @@ class Companies extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
+    
+    public $file;
     public static function tableName()
     {
         return 'companies';
@@ -33,7 +35,8 @@ class Companies extends \yii\db\ActiveRecord
     {
         return [
             [['company_created_date'], 'safe'],
-            [['company_name', 'company_email', 'company_address'], 'string', 'max' => 45],
+            [['file'],'file'],
+            [['company_name', 'company_email','logo', 'company_address'], 'string', 'max' => 45],
         ];
     }
 

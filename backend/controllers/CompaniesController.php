@@ -8,6 +8,7 @@ use backend\models\CompaniesSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * CompaniesController implements the CRUD actions for Companies model.
@@ -65,7 +66,19 @@ class CompaniesController extends Controller
     {
         $model = new Companies();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post())) {
+            
+            //get instance
+            
+            $imageTake = $model->company_name;
+            $imageName= str_replace(" ","",$imageTake);
+            $model->file = UploadedFile::getInstance($model,'file');
+            $model->file->saveAs('uploads/'.$imageName.'.'.$model->file->extension );
+            
+            //save the path in db
+            $model->logo = 'uploads/'.$imageName.'.'.$model->file->extension;
+            
+            $model->save();
             return $this->redirect(['view', 'id' => $model->company_id]);
         } else {
             return $this->render('create', [

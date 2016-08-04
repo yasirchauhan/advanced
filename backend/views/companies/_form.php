@@ -29,6 +29,8 @@ use dosamigos\datepicker\DatePicker;
     <?= $form->field($model, 'company_email')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'company_address')->textInput(['maxlength' => true]) ?>
+    
+     <?= $form->field($model, 'file')->fileInput() ?>
 
   
 
